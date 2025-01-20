@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <p class="province">1</p>
+    <!-- 1. 导入axios库 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+    // 2. 使用axios函数
+        axios({
+            url:'http://hmajax.itheima.net/api/city',
+            params:{
+                pname:'河北省'
+            }
+        }).then(result => {
+            console.log(result);
+            console.log(result.data.list)
+            console.log(result.data.list.join('<br>'))
+            // 3.把获取的列表放到标签里
+            document.querySelector(".province").innerHTML = result.data.list.join('<br>');
+        })
+    
+    </script>
+</body>
+</html>
